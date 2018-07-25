@@ -1,0 +1,49 @@
+\documentclass[12pt, titlepage, letterpaper]{report}
+%
+%-- Packages
+%
+\usepackage{graphicx} %-- for including figures in JPG or PNG format
+\usepackage{url}  %-- formats URLs nicely
+\usepackage{apacite} %-- APA style citation 
+\usepackage{color}  %-- allows text colors
+\usepackage[utf8]{inputenc}
+\usepackage[toc,page]{appendix} %-- Appendixes
+\usepackage{setspace} %-- Line spacing
+\usepackage{tabularx}
+
+%
+%-- set margins,  you may need to edit this for your own printer
+%
+\usepackage[letterpaper,bindingoffset=0.2in,
+            left=1in,right=1in,top=1.2in,bottom=1.2in,
+            footskip=.25in]{geometry}
+            % 1 inch margin all around
+            
+       
+\setcounter{secnumdepth}{5} %-- Adds subsubsection numbering
+
+\parskip 1em %-- paragraph spacing
+% \renewcommand{\baselinestretch}{1.5} %-- line spacing
+
+\setlength\bibitemsep{2.5\itemsep}
+\bibliographystyle{apacite}  %-- use APA citation scheme
+
+\hyphenation{ana-lysis know-ledge}     %-- proper hypenation
+
+\newcommand{\makefigure}[2]{
+    \begin{figure}[#1]
+       \centering
+       #2
+    \end{figure}
+}
+
+\newcommand{\makechapter}[2]{
+    \newpage
+    \setcounter{page}{1}
+    \renewcommand{\thepage}{#1-\arabic{page}}
+    \include{#2}
+}
+
+\newcommand{\field}[2]{
+    \noindent \textbf{#1:}\hspace{1mm} #2 \newline
+}

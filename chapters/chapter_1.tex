@@ -1,0 +1,113 @@
+\chapter{Research Background}
+
+\section{Introduction}
+We live in the advent of information and communication technology (ICT). ICT refers to any device, network, application, and system that is used for digital interactions \cite{ref:WhatAreICTs}, improve efficiency, and gain profit. ICTs are used in education; many curricula rely on email or cloud storage to submit requirements. In fact, it is common for modern schools and universities to be equipped with computer labs, projectors, and tablets \cite{ref:ICTinEducation}. ICT shortens work time, lowers cost, and organizes data. 
+
+\section{Background of the Study}
+The Faculty of Arts and Languages (FAL) is one of the colleges of the Philippine Normal University (PNU). They focus on courses such as Literature education, English education, Music and Arts education, and Filipino education. 
+
+PNU has ICT in parts of the university. Professors in the university sometimes have classes that are held online. They also use email, and messengers to gather data for processing. All departments in the university are also equipped with desktop computers, telephones, and internet. However, some processes in FAL are still being done manually. Consequently, the group found opportunities in these manual processes that would improve their data management and processes. The system aims to resolve FAL's issues with the faculty loading and faculty profile.
+
+\section{Statement of the Problem}
+
+\subsection{Faculty Profile}
+Faculty profile has become an emerging requirement. The university has a requirement that faculties must participate in external and internal activities such as speaking engagements, lectures, and trainings, for a maximum of 3 activities per term . To enforce this requirement, the dean must check multiple forms, instead of a convenient centralized data source such as a faculty profile. Every time they do require this profile, they generate the faculty profile on the spot. This process is tedious.
+
+\subsection{Faculty Loading}
+Faculty loading has become a major issue to FAL. Schedules are designed by the dean and ideally only done once. Unfortunately, professors have constraints where they are not capable of teaching at certain days or certain hours. Consequently, the dean has to revise the schedule, rendering the initial schedule void, requiring additional time and effort to create a new schedule. Any change in the schedule starts a cascading effect. If a professor is unavailable for a time proposed by the dean, the dean must fill this time with another professor, adjusting two schedules, starting a domino effect.
+
+\section{Conceptual Framework}
+Refer to appendix \ref{appendix:ConceptualFramework} for the diagram.
+
+\subsection{Sources of Data}
+The sources of data for the system will be the user inputs. The staff of the Faculty of Arts and Languages will be expected to input data to the system. These data include: 
+
+\textbf{Faculty}
+\begin{itemize}
+\item Name
+\item Age
+\item Birthday
+\item Sex
+\item Degrees
+\item Time constraints
+\item School Email
+\item Papers presented (Including level. sponsor organization, publication date, place, venue, and name)
+\item Awards and recognitions (Including month and year, sponsoring agency, and title)
+\item Instructional materials development (Including medium, title, and year)
+\end{itemize}
+
+\textbf{Course Offerings}
+\begin{itemize}
+\item Subject
+\item Year and Section
+\item Course and Major
+\item Day and Time
+\item Room
+\item Loading units
+\item Quarter
+\item Enrollment cap
+\end{itemize}
+
+\subsection{Modules}
+The data listed in the sources of data will be processed with the faculty loading and the faculty profile modules. The faculty loading module aims to address the issue of the current time consuming process of assigning faculty members to schedules by performing the assignment of the faculty members. Because the machine will perform the schedule generation, the time spent on creating the new schedule is expected to be much shorter than if it were to be done manually. The system will also be expected to gather the responses and comments from the faculty online, which is faster than a personal meeting. 
+
+The faculty profile module will address issues monitoring faculties and their activities by storing faculty information for tracking purposes, and allows generation of an output that can be submitted whenever required. Faculty members, along with the associate dean and dean are permitted to update the profiles. However, any changes made by the faculty members must undergo approval of the associate dean and the dean.
+
+\subsection{Outputs}
+The outputs of these modules are the faculty schedules and the faculty profiles.
+
+The faculty profiles are meant to be viewed by the faculty portrayed by the profile, the dean, and the associate dean. The faculty profile can be submitted to the Vice President for Academics, the Dean's office, the Human Resource Management Office, and the Registrar's office. The faculty members will be able to update their own profiles. However, approval by the associate dean and dean are required before the change to the profile is made.
+
+All of the faculty schedules that are generated by the system will be accessible by the dean, the associate dean, and the clerk. Faculty members are prohibited from accessing the schedules of other members. The generated schedule will be visualized for the faculty members, showing them their respective planned weekly schedules and the details of the classes they will be handling. After the schedule has been generated, the faculty members are required to return feedback on whether they approve or disapprove of their schedules. If a faculty member disagrees with the generated schedule, the faculty member must state the reason for the disapproval. When the need to change the schedule arises, the associate dean will have the option to manually reassign faculty members. After all faculty members have approved their schedules, the associate dean will finalize the schedule.
+
+\subsection{Users}
+There are only four types of users in the system, namely:
+\begin{enumerate}
+\item Dean of FAL
+\item Associate Dean of FAL
+\item Faculties of FAL
+\item The Clerk
+\end{enumerate}
+
+The dean of FAL and the associate dean of FAL have view, and modify access to all the profiles in the faculty profile module, and all the schedules in the faculty loading schedules. The associate dean will approve the final schedule generated by the faculty loading module, while the faculties approve or decline the proposed schedule by the system. The faculties only have view access to their own schedules and profiles, but may propose a change to their own profile. The clerk will have the same authority as the associate dean.
+
+\subsection{Tools and Technologies}
+The system will be designed as a web application for the reason that it will be designed to be used with multiple users, potentially concurrently, and not on the same machine. The system will be made, in both client and server side, using ECMAScript 2017. Client libraries include React for the UI layer, Redux for the state management layer, Material UI for the design language and component library, Lokka for the networking layer, and React Router for mapping the client side state to the browser URL bar. The server will use Express as the web application framework handling HTTP requests and responses, MongoDB as the database with Mongoose as the Object Document Mapper to abstract interactions with the database, GraphQL as the query language for querying data from the server using an exposed API endpoint, and Node.js as the runtime platform for the server.
+
+\section{Research Objectives}
+The research objective is to identify problems and possible opportunities in FAL's operations, and alleviate FAL's issues identified in the problem areas of faculty loading and faculty profile through the implementation of an information system by designing and creating a specialized information system that would serve as the pilot project for PNU.
+
+\subsection{General Objective}
+The research objective is to alleviate PNU's issues identified in the problem areas of faculty loading and faculty profile through the implementation of an information system.
+
+\subsection{Specific Objectives}
+Specifically, the project aims to:
+\begin{itemize}
+\item{[removed list item -- A2]}
+\item{To facilitate tracking and management of faculty subject assignments}
+\item{To facilitate creating, updating, and storing faculty profiles}
+\end{itemize}
+
+\section{Significance of the Study}
+The project is an innovation request. The setup of the project is unprecedented; PNU has not implemented specialized information systems for faculty loading and faculty profiles before. The success of the system will contribute to FAL’s higher level of accreditation and better data management.
+
+The system will also allow easier data management for FAL by facilitating tracking and management of faculty subject assignments, as well as facilitating the creating, updating, and storing of faculty subject assignments. 
+
+There exists a social impact in the project. If the system is effectively implemented in FAL, the system will be implemented throughout the entire university. PNU has also stated that a successful information system will serve as a model for systems in other universities.
+
+\section{Scope and Limitations}
+
+\subsection{Scope}
+
+\subsubsection{Faculty Loading}
+Faculty loading involves the assignment of faculty members to their respective subjects based on their specializations and schedule. The faculty loading should also be flexible to changes, because the schedule must be approved by the faculty member before it is finalized, it is common that the schedule is revised multiple times. 
+
+\subsubsection{Faculty Profile}
+The scope also covers faculty profile, which keeps track of the faculty members' information and activities. FAL often have specialized tasks, such as training foreign teachers, or training teachers from the Department of Education. They must also submit the recent profile of the faculty members to different requesting offices within PNU. This is for keeping track of any recent profile changes, such as any published or ongoing research by the faculty. Therefore, the system must be able to create and save faculty profiles for easier access and processing.
+
+\subsection{Limitations}
+Certain functionalities are out of scope and should not be expected from the project. The scope of the project involves the college of FAL, and no other colleges. Features that would traditionally be on a university information system such as student database, student enrollment, tuition calculation, and the like are out of scope. Certain employee management features such as payroll, project management, task management, employee performance management, and similar features are not part of the project.
+
+Furthermore, professors have constraints in their schedule. Depending on the professor, they may simply be unable to teach at a certain time, and the system cannot manipulate these constraints. Instead, the system has to account for these constraints when handling faculty loading.
+
+Finally, the system will not include any finance related activities from faculty loading and faculty profiling because FAL has stated that they require no assistance in managing their financial operations, and the financial data is deemed confidential.  FAL has explicitly forbidden the group from any finance related research on the project.

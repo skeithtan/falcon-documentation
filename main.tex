@@ -1,0 +1,58 @@
+% main.tex
+% This is the main file for the thesis proposal
+
+\include{preamble} %-- Includes packages, document specifications 
+
+\begin{document}
+
+\include{title_page}
+
+\pagenumbering{roman} %-- Roman numerals numbering before actual content
+\setcounter{page}{2} %-- This is the second page
+
+\singlespacing %-- Line spacing
+\tableofcontents %-- Show table of contents
+
+% List of figures
+\newpage
+\listoffigures
+
+% List of tables
+\newpage
+\listoftables
+
+% Actual content
+\onehalfspacing %-- Line spacing
+\newpage
+\pagenumbering{arabic} %-- this will number pages as 1, 2, 3, etc...
+\setcounter{page}{1} 
+
+\include{abstract}
+
+\makechapter{1}{./chapters/chapter_1}
+\makechapter{2}{./chapters/chapter_2}
+\makechapter{3}{./chapters/chapter_3}
+\makechapter{4}{./chapters/chapter_4}
+
+\makechapter{5}{./chapters/chapter_5}
+\makechapter{6}{./chapters/chapter_6}
+
+
+\appendix
+\renewcommand{\figurename}{Appendix} % Sets Figure name to Appendix
+\singlespacing %-- Line spacing
+
+\makechapter{A}{./appendices/problem_analysis}
+\makechapter{A}{./appendices/existing_system}
+\makechapter{A}{./appendices/related_systems}
+\makechapter{A}{./appendices/related_methods}
+\makechapter{A}{./appendices/resource_persons}
+
+
+\newpage
+\renewcommand{\thepage}{} %-- Remove page numbers
+\renewcommand{\bibname}{Bibliography} %-- Bibliography, not references
+\bibliography{references}           
+
+
+\end{document}
