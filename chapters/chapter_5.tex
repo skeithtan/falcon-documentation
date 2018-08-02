@@ -8,21 +8,21 @@
 The faculty profile inputs are the basic information (name, email, date of birth, faculty ID number, sex, employment type), degrees, recognitions, presentations, instructional materials, and subjects of expertise of the faculties. The output of the faculty profile module is the collective faculty profile which contains the details of the faculty members working under FAL. These faculty profiles may be printed, and their content may vary depending on the requesting office.
 
 \subsubsection{Faculty Loading}
-Inputs for faculty loading include the availability constraints of the faculty, subjects, and courses. Expertise or specializations of the faculty member, from the faculty profile module, is also included as an input. The system will then automate an output which is the schedule of classes with the assigned professors.
+Inputs for faculty loading include the availability constraints of the faculty, subjects, and courses. Expertise or specializations of the faculty member, from the faculty profile module, is also included as an input. The system will then produce an output which is the schedule of classes with the assigned professors.
 
 \subsection{Processes}
 
     \subsubsection{Faculty Loading}
-        \paragraph{Adding of Classes and Faculty}
-        The first step in the new faculty loading process is the adding of classes and faculty. Classes and their schedules come in the form of a list, and are given to the associate dean by the registrar. These classes and schedules are permanent. The process is performed by either the dean, associate dean, or the clerk. Details of the class being added must be inputted, such as the subject being taught, the class code, the days of the class (Monday-Thursday or Tuesday-Friday), and the time slot. On the other hand, adding faculty members involves selecting the faculty members who will be given assignments for the term. When the faculty members and classes have been added, the faculty members will be able to submit their time availability.
+        \paragraph{Adding Classes and Faculty Members}
+        The first step in the new faculty loading process is adding the classes and faculty members. Classes and their schedules come as a list, and are given to the associate dean by the registrar. These classes and schedules are permanent. The process is performed by either the dean, associate dean, or the clerk. Details of the class being added must be entered, such as the subject being taught, the class code, the days of the class (Monday-Thursday or Tuesday-Friday), and the time slot. On the other hand, adding faculty members involves selecting the faculty members who will be given assignments for the term. When the faculty members and classes have been added, the faculty members will be able to submit their time availability.
         
-        \paragraph{Scheduling of Faculty}
+        \paragraph{Scheduling Faculty Members}
         After the classes and the faculty members have been added and time availability have been gathered, the associate dean can begin assigning faculty members. The scheduling process ideally ends when all classes have been assigned and when there are no warnings for the assignments of faculty members. The generated schedules can then be viewed by the faculty members.
         
-        \paragraph{Gathering of Faculty Feedback}
-        When faculty members have viewed their schedules, they can either approve or disapprove them. Faculty members can no longer submit changes to their schedules when they have approved. Should a faculty member disapprove of their schedule, the system prompts them to input their reason for rejection and their new time availability. If the associate dean needs to adjust the schedule accordingly, they may do so. After the schedule is adjusted, all faculty members must approve or disapprove, whether their schedule has been affected or not.
+        \paragraph{Gathering Faculty Feedback}
+        When faculty members have viewed their schedules, they can either approve or disapprove them. Faculty members can no longer submit changes to their schedules when they have approved. Should a faculty member disapprove their schedule, the system prompts them to input their reason for rejection and their new time availability. If the associate dean needs to adjust the schedule accordingly, they may do so. After the schedule is adjusted, all faculty members must approve or disapprove, whether their schedule has been affected or not.
         
-        \paragraph{Publishing of the Term Schedule}
+        \paragraph{Publishing the Term Schedule}
         After gathering feedback from faculty members, the associate dean can publish the schedule, finalizing it. However, the term schedule cannot be published unless all classes have been assigned and there are no underloaded faculty members.\footnote{This is a feature being continued in the next term.} The generated term schedule will not be submitted to the registrar. It will be kept by FAL for internal documentation, and can be submitted to the dean or the university's vice president for academics.
 
     \subsubsection{Faculty Profile}
@@ -36,7 +36,7 @@ Inputs for faculty loading include the availability constraints of the faculty, 
         When adding faculty members' degrees, recognitions, presentations, instructional materials and extension works, the dean, associate dean and clerk do not have to go through the process of requesting for changes; the changes in details are immediately in effect. However, faculty members adding such details to their profiles must undergo the process. This is done by filling out the respective forms for the different profile sections and submitting the change request. Faculty members can withdraw or cancel their change request. The dean, associate dean, or clerk then checks for change requests sent by faculty members, and either accepts or rejects them. When a change request is rejected, the user must indicate the reason for rejecting the change request. On the other hand, when the change request is accepted, the changes are immediately in effect.
 
 \subsection{Data Storage Location}
-Data to be inputted and generated to and by the system is stored in MongoDB. To ensure documents are accessible only to those permitted, the server employs authorization and authentication techniques in API data access.
+Data to be entered and generated to and by the system is stored in MongoDB. To ensure documents are accessible only to those permitted, the server employs authorization and authentication techniques in API data access.
 
 \section{System Objectives}
 
@@ -47,12 +47,12 @@ Data to be inputted and generated to and by the system is stored in MongoDB. To 
     Specifically, the project aims to:
     
     \begin{itemize}
-        \item To view, create, update, and print faculty profiles
-        \item To create a functionality that allows faculty members to submit new information such as degrees, recognitions, presentations, instructional materials and extension works to be placed for review by the administrators
-        \item To facilitate the scheduling of faculty members to different classes
-        \item To intuitively display the compatibility of faculty members to classes as an assistive tool for scheduling
-        \item To create a functionality that allows faculty members to submit their time availability and feedback to the proposed schedule
-        \item To provide a way to view the current and historical schedules of faculty members
+        \item View, create, update, and print faculty profiles
+        \item Create a functionality that allows faculty members to submit new information such as degrees, recognitions, presentations, instructional materials and extension works to be placed for review by the administrators
+        \item Facilitate scheduling the faculty members to different classes
+        \item Intuitively display the compatibility of faculty members to classes as an assistive tool for scheduling
+        \item Create a functionality that allows faculty members to submit their time availability and feedback to the proposed schedule
+        \item Provide a way to view the current and historical schedule versions of faculty members\footnote{This is a feature that will be continued in the next term.}
     \end{itemize}
 
 \section{System Scope}
@@ -69,7 +69,7 @@ Data to be inputted and generated to and by the system is stored in MongoDB. To 
         The user can search for a specific faculty member that is included in the faculty pool for the term.
         
         \subsubsection{Add Faculty Members}
-        The user can select which faculty members will be given assignments for the classes of the term. Adding faculty members is only done on the first stage of faculty loading, alongside the adding of the classes. This cannot be done during the other steps of the process.
+        The user can select which faculty members will be given assignments for the classes of the term. Adding faculty members is only done on the first stage of faculty loading, alongside the adding the classes. This cannot be done during the other steps of the process.
         
         \subsubsection{Visit Faculty Profile}
         The user is directed to the profile of the selected faculty member to view more details about them.
@@ -97,7 +97,7 @@ Data to be inputted and generated to and by the system is stored in MongoDB. To 
         The user can choose to view only the classes that have not been assigned.
         
         \subsubsection{Add Classes}
-        Given the schedule of classes from the registrar, the user can input the classes for the term. The inputs are the subject, meeting days (Monday-Thursday or Tuesday-Friday), meeting hours, room, enrollment cap, course, and section. The adding of classes can only be done during the first step of the process, alongside the adding of faculty members.
+        Given the schedule of classes from the registrar, the user can input the classes for the term. The inputs are the subject, meeting days (Monday-Thursday or Tuesday-Friday), meeting hours, room, enrollment cap, course, and section. The adding classes can only be done during the first step of the process, alongside the adding faculty members.
         
         \subsubsection{Remove Class}
         The user can remove a class. Although the classes from the registrar's form are permanent, the user may want to remove a duplicate or misplaced class. Classes can only be removed when they are initially being added to the schedule.
@@ -106,7 +106,7 @@ Data to be inputted and generated to and by the system is stored in MongoDB. To 
         Clicking on a class shows some of its details, such as the full title of the subject, section, meeting days, meeting hours, and the assigned faculty member.
         
         \subsubsection{Update Class Details}
-        The user can update any of the details of the classes. Class details can only be updated during the first step of the scheduling process, which is the adding of classes and faculty members.
+        The user can update any of the details of the classes. Class details can only be updated during the first step of the scheduling process, which is the adding classes and faculty members.
         
         \subsubsection{View Subject}
         The user can view the subject of a selected class.
@@ -116,7 +116,7 @@ Data to be inputted and generated to and by the system is stored in MongoDB. To 
         
         %-- Others
         \subsubsection{Publish Schedule}
-        The user finalizes the schedule by publishing it. The schedule can then be viewed by the faculty members. Ideally, the schedule is published when no classes are left unassigned, no faculty members are underloaded, and all faculty members approve of their schedules.
+        The user finalizes the schedule by publishing it. The schedule can then be viewed by the faculty members. Ideally, the schedule is published when no classes are left unassigned, no faculty members are underloaded, and all faculty members approve their schedules.
         
         \subsubsection{Print Schedule}
         The user can print the schedule of classes generated by the system. This report includes the details of the classes, which are the subjects, sections, courses, days, times, rooms, and assigned faculty members. Printing the schedule can be done after it is published.
@@ -181,21 +181,21 @@ Data to be inputted and generated to and by the system is stored in MongoDB. To 
     	The user can view the different presentations of the selected faculty member.
     	
     	\subsubsection{Add Presentation}
-    	The user can add a presentation to the profile of the selected faculty member. Details such as the title of the presentation, sponsor, venue, conference name, presentation date, duration (in days), category are required to be inputted before adding a presentation.
+    	The user can add a presentation to the profile of the selected faculty member. Details such as the title of the presentation, sponsor, venue, conference name, presentation date, duration (in days), category are required to be entered before adding a presentation.
     	
     	%-- Instructional Materials
     	\subsubsection{View Instructional Materials}
     	The user can view the different instruction materials produced by the selected faculty member.
     	
     	\subsubsection{Add Instructional Material}
-    	The user can add an instructional material to the profile of the selected faculty member. Details such as the title of the instructional material, year of usage, audience, and medium are required to be inputted before adding an instructional material.
+    	The user can add an instructional material to the profile of the selected faculty member. Details such as the title of the instructional material, year of usage, audience, and medium are required to be entered before adding an instructional material.
     	
     	%-- Extension Works
     	\subsubsection{View Extension Works}
     	The user can view the different extension works of the selected faculty member.
     	
     	\subsubsection{Add Extension Work}
-    	The user can add an extension work to the profile of the selected faculty member. Details such as the title of the extension work, venue, and roles are required to be inputted before adding an extension work.
+    	The user can add an extension work to the profile of the selected faculty member. Details such as the title of the extension work, venue, and roles are required to be entered before adding an extension work.
     	
     	%-- Change Requests
     	\subsubsection{View Change Requests}
@@ -239,14 +239,14 @@ Data to be inputted and generated to and by the system is stored in MongoDB. To 
         The user can view their different instructional materials produced.
         
         \subsubsection{Request Instructional Material}
-        Adding an instructional material to the profile must be approved by either the dean, associate dean, or clerk. Therefore, a change request must be submitted, containing the title of the instructional material, year of usage, audience, and medium are required to be inputted before adding an instructional material.
+        Adding an instructional material to the profile must be approved by either the dean, associate dean, or clerk. Therefore, a change request must be submitted, containing the title of the instructional material, year of usage, audience, and medium are required to be entered before adding an instructional material.
         
         %-- Extension Works
         \subsubsection{View Extension Works}
         The user can view their different extension works.
         
         \subsubsection{Request Extension Work}
-        Adding an extension work to the profile must be approved by either the dean, associate dean, or clerk. Therefore, a change request must be submitted, containing the title of the extension work, venue, and roles are required to be inputted before adding an extension work.
+        Adding an extension work to the profile must be approved by either the dean, associate dean, or clerk. Therefore, a change request must be submitted, containing the title of the extension work, venue, and roles are required to be entered before adding an extension work.
         
         %-- Change Requests
         \subsubsection{View Change Requests}
@@ -269,7 +269,7 @@ Data to be inputted and generated to and by the system is stored in MongoDB. To 
         The user can view a list of subjects, and select one to see its overview. Details such as the full title of the subject, category, description, and expert faculties will be displayed.
         
         \subsubsection{Add Subject}
-        The user can add a subject to the system. Details such as the title, subject code, description, category (pedagogical, general education, specialization, elective, or professional education), and expert faculty members must be inputted by the user.
+        The user can add a subject to the system. Details such as the title, subject code, description, category (pedagogical, general education, specialization, elective, or professional education), and expert faculty members must be entered by the user.
         
         \subsubsection{Update Subject}
         The user can update or change the details of the subject, including the full title, subject code, description, and category (pedagogical, general education, specialization, elective, or professional education).
@@ -300,7 +300,7 @@ The minimum required specifications to use the system would be:
     \item{Google Chrome v.68}
     \item{Safari v.11}
     \item{Windows 10 / Mac OS High Sierra / Linux}
-    \item{Intel Core i5 2015}
+    \item{Intel Core i5}
     \item{8GB RAM}
     \item{20GB free storage}
     \item{Integrated graphics}
