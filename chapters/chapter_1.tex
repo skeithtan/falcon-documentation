@@ -11,7 +11,7 @@ PNU has ICT in parts of the university. Professors in the university sometimes h
 \section{Statement of the Problem}
 
 \subsection{Faculty Profile}
-Faculty profile has become an emerging requirement. The university has a requirement that faculties must participate in external and internal activities such as speaking engagements, lectures, and trainings, for a maximum of 3 activities per term . To enforce this requirement, the dean must check multiple forms, instead of a convenient centralized data source such as a faculty profile. Every time they do require this profile, they generate the faculty profile on the spot. This process is tedious.
+Faculty profile has become an emerging requirement. The university has a requirement that faculties must participate in external and internal activities such as speaking engagements, lectures, and trainings, for a maximum of three (3) activities per term. To enforce this requirement, the dean must check multiple forms, instead of a convenient centralized data source such as a faculty profile. Every time they require this profile, they generate the faculty profile on the spot. This process is tedious to FAL.
 
 \subsection{Faculty Loading}
 Faculty loading has become a major issue to FAL. Schedules are designed by the dean and ideally only done once. Unfortunately, professors have constraints where they are not capable of teaching at certain days or certain hours. Consequently, the dean has to revise the schedule, rendering the initial schedule void, requiring additional time and effort to create a new schedule. Any change in the schedule starts a cascading effect. If a professor is unavailable for a time proposed by the dean, the dean must fill this time with another professor, adjusting two schedules, starting a domino effect.
@@ -24,32 +24,32 @@ The sources of data for the system will be the user inputs. The staff of the Fac
 
 \textbf{Faculty}
 \begin{itemize}
-\item Name
-\item Age
-\item Birthday
-\item Sex
+\item Basic Information
+\item Employment type
+\item ID Number
+\item Subjects of Specialization
 \item Degrees
-\item Time constraints
-\item School Email
-\item Papers presented (Including level. sponsor organization, publication date, place, venue, and name)
-\item Awards and recognitions (Including month and year, sponsoring agency, and title)
-\item Instructional materials development (Including medium, title, and year)
+\item Recognitions
+\item Presentations
+\item Instructional Materials
+\item Extension Works
+\item Time Availability
+\item Schedule Feedback
 \end{itemize}
 
 \textbf{Course Offerings}
 \begin{itemize}
 \item Subject
-\item Year and Section
-\item Course and Major
-\item Day and Time
+\item Year / Section
+\item Course / Major
+\item Day
+\item Time
 \item Room
-\item Loading units
-\item Quarter
 \item Enrollment cap
 \end{itemize}
 
 \subsection{Modules}
-The data listed in the sources of data will be processed with the faculty loading and the faculty profile modules. The faculty loading module aims to address the issue of the current time consuming process of assigning faculty members to schedules by performing the assignment of the faculty members. Because the machine will perform the schedule generation, the time spent on creating the new schedule is expected to be much shorter than if it were to be done manually. The system will also be expected to gather the responses and comments from the faculty online, which is faster than a personal meeting. 
+The data listed in the sources of data will be processed with the faculty loading and the faculty profile modules. The faculty loading module aims to address the issue of the current time consuming process of assigning faculty members to schedules by performing the assignment of the faculty members. Because the machine will perform the schedule generation, the time spent on creating the new schedule is expected to be much shorter than if it were to be done manually. The system will also be expected to gather the responses and comments from the faculty online, which is faster than holding a personal meeting. 
 
 The faculty profile module will address issues monitoring faculties and their activities by storing faculty information for tracking purposes, and allows generation of an output that can be submitted whenever required. Faculty members, along with the associate dean and dean are permitted to update the profiles. However, any changes made by the faculty members must undergo approval of the associate dean and the dean.
 
@@ -65,14 +65,26 @@ There are only four types of users in the system, namely:
 \begin{enumerate}
 \item Dean of FAL
 \item Associate Dean of FAL
-\item Faculties of FAL
+\item Faculty members of FAL
 \item The Clerk
 \end{enumerate}
 
-The dean of FAL and the associate dean of FAL have view, and modify access to all the profiles in the faculty profile module, and all the schedules in the faculty loading schedules. The associate dean will approve the final schedule generated by the faculty loading module, while the faculties approve or decline the proposed schedule by the system. The faculties only have view access to their own schedules and profiles, but may propose a change to their own profile. The clerk will have the same authority as the associate dean.
+\subsubsection{Dean}
+The dean may view faculty profiles, approve or reject change requests, and view subjects. The dean is not involved in any of the processes, but is given access to these features.
+
+\subsubsection{Associate Dean}
+The associate dean may view faculty profiles, approve or reject change requests, view subjects, add subjects, perform the scheduling of faculty members, and populate the term schedule with faculty members and classes. The associate dean may also check the feedback of the faculty for the schedule and publish the schedule.
+
+\subsubsection{Clerk}
+The clerk may add, edit, and delete details in the faculty profiles, view faculty profiles, approve or reject change requests, view subject pages, add subjects, and populate the term schedule with faculty members and classes.
+
+\subsubsection{Faculty Members}
+The faculty members may view their own profile, view their own schedules, and request for changes in their profile. Faculty members may also input the time availability and send feedback for their schedule.
+
+% The dean of FAL and the associate dean of FAL have view, and modify access to all the profiles in the faculty profile module, and all the schedules in the faculty loading schedules. The associate dean will approve the final schedule generated by the faculty loading module, while the faculties approve or decline the proposed schedule by the system. The faculties only have view access to their own schedules and profiles, but may propose a change to their own profile. The clerk will have the same authority as the associate dean.
 
 \subsection{Tools and Technologies}
-The system will be designed as a web application for the reason that it will be designed to be used with multiple users, potentially concurrently, and not on the same machine. The system will be made, in both client and server side, using ECMAScript 2017. Client libraries include React for the UI layer, Redux for the state management layer, Material UI for the design language and component library, Lokka for the networking layer, and React Router for mapping the client side state to the browser URL bar. The server will use Express as the web application framework handling HTTP requests and responses, MongoDB as the database with Mongoose as the Object Document Mapper to abstract interactions with the database, GraphQL as the query language for querying data from the server using an exposed API endpoint, and Node.js as the runtime platform for the server.
+The system will be designed as a web application for the reason that it will be designed to be used with multiple users, potentially concurrently, and not on the same machine. The system will be made, in both client and server side, using ECMAScript 2017. Client libraries include React for the UI layer, Redux for the state management layer, Material UI for the design language and component library, Apollo Client for the networking layer, and React Router for mapping the client side state to the browser URL bar. The server will use Express as the web application framework handling HTTP requests and responses, MongoDB as the database with Mongoose as the Object Document Mapper to abstract interactions with the database, GraphQL as the query language for querying data from the server using an exposed API endpoint, and Node.js as the runtime platform for the server.
 
 \section{Research Objectives}
 The research objective is to identify problems and possible opportunities in FAL's operations, and alleviate FAL's issues identified in the problem areas of faculty loading and faculty profile through the implementation of an information system by designing and creating a specialized information system that would serve as the pilot project for PNU.
@@ -83,9 +95,8 @@ The research objective is to alleviate PNU's issues identified in the problem ar
 \subsection{Specific Objectives}
 Specifically, the project aims to:
 \begin{itemize}
-\item{[removed list item -- A2]}
-\item{To facilitate tracking and management of faculty subject assignments}
-\item{To facilitate creating, updating, and storing faculty profiles}
+\item Facilitate tracking and management of faculty subject assignments
+\item Facilitate creating, updating, and storing faculty profiles
 \end{itemize}
 
 \section{Significance of the Study}

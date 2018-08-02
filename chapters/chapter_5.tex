@@ -14,16 +14,16 @@ Inputs for faculty loading include the availability constraints of the faculty, 
 
     \subsubsection{Faculty Loading}
         \paragraph{Adding of Classes and Faculty}
-        The first step in the new faculty loading process is the adding of classes and faculty. Classes and their schedules come in the form of a list, and are given to the associate dean by the registrar. These classes and schedules are permanent. The process is performed by either the dean, associate dean, or the clerk. Details of the class being added must be inputted, such as the subject being taught, the class code, the days of the class (Monday-Thursday or Tuesday-Friday), and the time slot. On the other hand, adding faculty members involves selecting the faculty members who will be given assignments for the term. When the faculty members and classes have been added, the faculty members will be able to submit their time preferences.
+        The first step in the new faculty loading process is the adding of classes and faculty. Classes and their schedules come in the form of a list, and are given to the associate dean by the registrar. These classes and schedules are permanent. The process is performed by either the dean, associate dean, or the clerk. Details of the class being added must be inputted, such as the subject being taught, the class code, the days of the class (Monday-Thursday or Tuesday-Friday), and the time slot. On the other hand, adding faculty members involves selecting the faculty members who will be given assignments for the term. When the faculty members and classes have been added, the faculty members will be able to submit their time availability.
         
         \paragraph{Scheduling of Faculty}
-        After the classes and the faculty members have been added and time preferences have been gathered, exclusively the associate dean can begin assigning faculty members. The scheduling process ends when all classes have been assigned, and ideally when there are no warnings for the assignments of faculty members. When the process is ended, the generated schedules can be viewed by the faculty members.
+        After the classes and the faculty members have been added and time availability have been gathered, the associate dean can begin assigning faculty members. The scheduling process ideally ends when all classes have been assigned and when there are no warnings for the assignments of faculty members. The generated schedules can then be viewed by the faculty members.
         
         \paragraph{Gathering of Faculty Feedback}
-        When faculty members have viewed their schedules, they can either approve or disapprove them. Faculty members can no longer submit changes to their schedules when they have approved. Should a faculty member disapprove of their schedule, the system prompts them to input their reason for rejection and their new time availability. If the associate dean needs to adjust the schedule accordingly, they may do so. After the schedule is adjusted, all faculty members must approve or disapprove, whether their schedule has been affected or not. Otherwise, the associate dean may proceed with the generated schedule, regardless of faculty disapproval.
+        When faculty members have viewed their schedules, they can either approve or disapprove them. Faculty members can no longer submit changes to their schedules when they have approved. Should a faculty member disapprove of their schedule, the system prompts them to input their reason for rejection and their new time availability. If the associate dean needs to adjust the schedule accordingly, they may do so. After the schedule is adjusted, all faculty members must approve or disapprove, whether their schedule has been affected or not.
         
         \paragraph{Publishing of the Term Schedule}
-        After gathering feedback from faculty members, the associate dean can publish the schedule, finalizing it. The generated term schedule will not be submitted to the registrar. It will be kept by FAL for internal documentation, and can be submitted to the dean or the university's vice president for academics.
+        After gathering feedback from faculty members, the associate dean can publish the schedule, finalizing it. However, the term schedule cannot be published unless all classes have been assigned and there are no underloaded faculty members.\footnote{This is a feature being continued in the next term.} The generated term schedule will not be submitted to the registrar. It will be kept by FAL for internal documentation, and can be submitted to the dean or the university's vice president for academics.
 
     \subsubsection{Faculty Profile}
         \paragraph{Creating the Account}
@@ -41,27 +41,112 @@ Data to be inputted and generated to and by the system is stored in MongoDB. To 
 \section{System Objectives}
 
     \subsection{General Objectives}
-    The research objective is to alleviate PNU's issues identified in the problem areas of faculty loading and faculty profile through the implementation of an information system.
+    The general objective is to create a web application that resolves problem areas identified in FAL's faculty loading process, as well as creates an opportunity for FAL to manage faculty profiles in an intuitive and user-friendly design.
     
     \subsection{Specific Objectives}
     Specifically, the project aims to:
     
     \begin{itemize}
-    \item{To facilitate tracking and management of faculty subject assignments}
-    \item{To facilitate creating, updating, and storing faculty profiles}
-    \item{Assign subjects to faculty}
+        \item To view, create, update, and print faculty profiles
+        \item To create a functionality that allows faculty members to submit new information such as degrees, recognitions, presentations, instructional materials and extension works to be placed for review by the administrators
+        \item To facilitate the scheduling of faculty members to different classes
+        \item To intuitively display the compatibility of faculty members to classes as an assistive tool for scheduling
+        \item To create a functionality that allows faculty members to submit their time availability and feedback to the proposed schedule
+        \item To provide a way to view the current and historical schedules of faculty members
     \end{itemize}
 
 \section{System Scope}
 
     \subsection{Faculty Loading}
-    %-- to do
+    The following functions are mostly for the associate dean. However, the clerk may add the classes and faculty members in the scheduling process.
+    
+        %-- General
+        \subsubsection{Select Term and Year}
+        The user can select which term and year to view and / or work on for scheduling.
+        
+        %-- Faculty
+        \subsubsection{Search Faculty}
+        The user can search for a specific faculty member that is included in the faculty pool for the term.
+        
+        \subsubsection{Add Faculty Members}
+        The user can select which faculty members will be given assignments for the classes of the term. Adding faculty members is only done on the first stage of faculty loading, alongside the adding of the classes. This cannot be done during the other steps of the process.
+        
+        \subsubsection{Visit Faculty Profile}
+        The user is directed to the profile of the selected faculty member to view more details about them.
+
+        \subsubsection{View Faculty Time Availability}
+        The user can view the time slots that the selected faculty member has submitted. These time slots are when the faculty member are available for accommodating a class.
+        
+        \subsubsection{View Faculty Individual Schedule}
+        The user can view the classes that the selected faculty member are assigned to and its schedule, separated into Monday-Thursday and Tuesday-Friday.
+        
+        \subsubsection{Assign Faculty Members}
+        The user has two options for assigning faculty members to classes. Faculty members can be dragged and dropped on a class to assign them. The other option is to automatically assign faculty members to all the classes\footnote{This is a feature being continued in the next term.}. The assignment of faculty members can only be done during the scheduling step of the process. This step can be revisited when adjustments are needed to be made after gathering faculty feedback.
+        
+        \subsubsection{Unassign Faculty Member}
+        The user can remove faculty members from classes. Unassigning faculty members can only be done during the scheduling step of the process.
+        
+        %-- Classes
+        \subsubsection{View Monday-Thursday Classes}
+        The user can view the classes that fall on Mondays and Thursdays.
+        
+        \subsubsection{View Tuesday-Friday Classes}
+        The user can view the classes that fall on Tuesdays and Fridays.
+        
+        \subsubsection{Filter Unassigned Classes}
+        The user can choose to view only the classes that have not been assigned.
+        
+        \subsubsection{Add Classes}
+        Given the schedule of classes from the registrar, the user can input the classes for the term. The inputs are the subject, meeting days (Monday-Thursday or Tuesday-Friday), meeting hours, room, enrollment cap, course, and section. The adding of classes can only be done during the first step of the process, alongside the adding of faculty members.
+        
+        \subsubsection{Remove Class}
+        The user can remove a class. Although the classes from the registrar's form are permanent, the user may want to remove a duplicate or misplaced class. Classes can only be removed when they are initially being added to the schedule.
+        
+        \subsubsection{View Class Details}
+        Clicking on a class shows some of its details, such as the full title of the subject, section, meeting days, meeting hours, and the assigned faculty member.
+        
+        \subsubsection{Update Class Details}
+        The user can update any of the details of the classes. Class details can only be updated during the first step of the scheduling process, which is the adding of classes and faculty members.
+        
+        \subsubsection{View Subject}
+        The user can view the subject of a selected class.
+        
+        \subsubsection{View Feedback}
+        The user can view the reason for rejection submitted by faculty members.
+        
+        %-- Others
+        \subsubsection{Publish Schedule}
+        The user finalizes the schedule by publishing it. The schedule can then be viewed by the faculty members. Ideally, the schedule is published when no classes are left unassigned, no faculty members are underloaded, and all faculty members approve of their schedules.
+        
+        \subsubsection{Print Schedule}
+        The user can print the schedule of classes generated by the system. This report includes the details of the classes, which are the subjects, sections, courses, days, times, rooms, and assigned faculty members. Printing the schedule can be done after it is published.
+        
+        \subsubsection{Time Machine}
+        The user can view historical versions of faculty schedules produced for a specific term\footnote{This is a feature being continued in the next term.}.
     
     \subsection{My Schedule}
-    %-- to do
+    The following functions are performed by the faculty members.
+    
+        \subsubsection{Select Time Availability}
+        The user can input their time availability, which is the time slots they are available for.
+        
+        \subsubsection{Accept Schedule}
+        The user can accept their schedule and their assigned classes. Accepting the schedule can be done after the faculty members have been assigned.
+        
+        \subsubsection{Change Schedule}
+        When the user chooses to reject their schedule, they are required to submit their reason for rejection. If necessary, they can also submit their new time availability. Rejecting the schedule and submitting the changes can be done after the faculty members have been assigned.
+        
+        \subsubsection{View Schedule}
+        The user can view their schedule for the term, as well as their previous schedules.
+        
+        \subsubsection{Print Schedule}
+        The user can print their schedule, with the details of the classes they are assigned to.\footnote{This is a feature being continued in the next term.}
         
     \subsection{Faculty Profiles}
     The following functions are performed by either the dean, associate dean, or clerk. The said users have a different interface for these functions than the faculty members.
+    
+        \subsubsection{Search Faculty}
+        The user can search for a specific faculty member that is part of the system.
     
     	\subsubsection{Add Faculty}
     	The user can add a faculty profile when a new faculty member joins FAL. Inputs include the name, email, photo, date of birth, sex, identification number, and employment type. The system will automatically generate a temporary password for the faculty member for the first time they will log in. This password must be stored by the clerk separately.
@@ -77,7 +162,7 @@ Data to be inputted and generated to and by the system is stored in MongoDB. To 
     	When a faculty member's temporary password is not stored elsewhere by the user, or the faculty member physically requests for a new password, the user can reset their password. This will generate a new temporary password for the faculty member to use in logging in to the system. Similar to the initial automatically generated password, this must be stored elsewhere by the user.
     	
     	\subsubsection{Print Faculty Profile}
-    	The user can print the faculty profile. By default, the selected faculty member's basic details are included in the document to be printed. However, the user can select further content to include. This is because the content is dependent on the requesting office that the document will be submitted to.
+    	The user can print the faculty profile. By default, the selected faculty member's basic details are included in the document to be printed. However, the user can specify what content to include. This is because the content is dependent on the requesting office that the document will be submitted to.
     	
     	\subsubsection{Assign Subject}
     	The user can assign subjects that the selected faculty member is an expert or is experienced in.
@@ -86,31 +171,31 @@ Data to be inputted and generated to and by the system is stored in MongoDB. To 
     	The user can remove a subject of expertise from the selected faculty member.
     	
     	\subsubsection{Add Degree}
-    	The user can add a degree to the selected faculty member. The user is then prompted to input the degree title, year of completion, and level of degree (associate, bachelor, master, or doctorate).
+    	The user can add a degree to the selected faculty member. The user is then prompted to input the degree title, year of completion, and level of degree.
     	
     	\subsubsection{Add Recognition}
-    	The user can add a recognition to the selected faculty member. The user is prompted to input the title of the recognition, sponsor, date of recognition, and basis of the recognition (research, scholarship, extension work, or instruction).
+    	The user can add a recognition to the selected faculty member. The user is prompted to input the title of the recognition, sponsor, date of recognition, and basis of the recognition.
     	
     	%-- Presentations
     	\subsubsection{View Presentations}
     	The user can view the different presentations of the selected faculty member.
     	
     	\subsubsection{Add Presentation}
-    	The user can add a presentation to the profile of the selected faculty member. Details such as the title of the presentation, sponsor, venue, conference name, presentation date, and duration (in days), are required to be inputted before adding a presentation.
+    	The user can add a presentation to the profile of the selected faculty member. Details such as the title of the presentation, sponsor, venue, conference name, presentation date, duration (in days), category are required to be inputted before adding a presentation.
     	
     	%-- Instructional Materials
     	\subsubsection{View Instructional Materials}
     	The user can view the different instruction materials produced by the selected faculty member.
     	
     	\subsubsection{Add Instructional Material}
-    	The user can add an instructional material to the profile of the selected faculty member. Details such as the title of the instructional material, year of usage, audience (student or teacher), and medium (print, module, video, slide, digital file, or audio), are required to be inputted before adding an instructional material.
+    	The user can add an instructional material to the profile of the selected faculty member. Details such as the title of the instructional material, year of usage, audience, and medium are required to be inputted before adding an instructional material.
     	
     	%-- Extension Works
     	\subsubsection{View Extension Works}
     	The user can view the different extension works of the selected faculty member.
     	
     	\subsubsection{Add Extension Work}
-    	The user can add an extension work to the profile of the selected faculty member. Details such as the title of the extension work, venue, and roles (lecturer, trainer, resource speaker, facilitator, coach, material writer), are required to be inputted before adding an extension work.
+    	The user can add an extension work to the profile of the selected faculty member. Details such as the title of the extension work, venue, and roles are required to be inputted before adding an extension work.
     	
     	%-- Change Requests
     	\subsubsection{View Change Requests}
@@ -121,6 +206,10 @@ Data to be inputted and generated to and by the system is stored in MongoDB. To 
     	
     	\subsubsection{Reject Change Request}
     	However, when the user rejects a change request, the reason for rejection must be indicated before dismissing the change request.
+    	
+    	%-- Others
+    	\subsubsection{Notifications}
+    	Notifications are received when change requests are submitted by faculty members. Clicking on a notification directs the user to the change requests submitted by a faculty member. Notifications are only dismissed after all change requests submitted by the faculty member have been resolved.
         
     \subsection{My Profile}
     The following functions are performed by faculty members. They have a different interface than the dean, associate dean and clerk and can only view their own profiles.
@@ -133,31 +222,31 @@ Data to be inputted and generated to and by the system is stored in MongoDB. To 
         The user can print their faculty profile. By default, their basic details are included in the document to be printed. Additional information can be included, depending on what the requesting office requires from them.
         
         \subsubsection{Request Degree}
-        Adding a degree to the profile must be approved by either the dean, associate dean, or clerk. Therefore, a change request must be submitted, containing the title of the degree, year of completion, and the level of the degree (associate, bachelor, master, or doctorate).
+        Adding a degree to the profile must be approved by either the dean, associate dean, or clerk. Therefore, a change request must be submitted, containing the title of the degree, year of completion, and the level of the degree.
         
         \subsubsection{Request Recognition}
-        Adding a recognition to the profile must be approved by either the dean, associate dean, or clerk. Therefore, a change request must be submitted, containing the title of the recognition, sponsor, date, and basis (research, scholarship, extension work, or instruction).
+        Adding a recognition to the profile must be approved by either the dean, associate dean, or clerk. Therefore, a change request must be submitted, containing the title of the recognition, sponsor, date, and basis.
         
         %-- Presentations
         \subsubsection{View Presentations}
         The user can view their different presentations.
         
         \subsubsection{Request Presentation}
-        Adding a presentation to the profile must be approved by either the dean, associate dean, or clerk. Therefore, a change request must be submitted, containing the .
+        Adding a presentation to the profile must be approved by either the dean, associate dean, or clerk. Therefore, a change request must be submitted, containing the title of the presentation, sponsor, venue, conference name, presentation date, duration (in days), category.
         
         %-- Instructional Materials
         \subsubsection{View Instructional Materials}
         The user can view their different instructional materials produced.
         
         \subsubsection{Request Instructional Material}
-        Adding an instructional material to the profile must be approved by either the dean, associate dean, or clerk. Therefore, a change request must be submitted, containing the .
+        Adding an instructional material to the profile must be approved by either the dean, associate dean, or clerk. Therefore, a change request must be submitted, containing the title of the instructional material, year of usage, audience, and medium are required to be inputted before adding an instructional material.
         
         %-- Extension Works
         \subsubsection{View Extension Works}
         The user can view their different extension works.
         
         \subsubsection{Request Extension Work}
-        Adding an extension work to the profile must be approved by either the dean, associate dean, or clerk. Therefore, a change request must be submitted, containing the .
+        Adding an extension work to the profile must be approved by either the dean, associate dean, or clerk. Therefore, a change request must be submitted, containing the title of the extension work, venue, and roles are required to be inputted before adding an extension work.
         
         %-- Change Requests
         \subsubsection{View Change Requests}
@@ -168,6 +257,10 @@ Data to be inputted and generated to and by the system is stored in MongoDB. To 
         
         \subsubsection{Dismiss Change Request}
         When a change request has either already been approved or rejected by either the dean, associate dean, or clerk, the change request can be dismissed, removing it from the user's display.
+        
+        %-- Others
+        \subsubsection{Notifications}
+        Notifications are received by the faculty members when either the dean, associate dean, or clerk approve or disapprove a change request. Clicking on the notification directs the user to their change requests. Notifications are only dismissed when the faculty member dismisses their approved or disapproved change requests.
     
     \subsection{Subjects}
     The following functions are accessible to the dean, associate dean, and clerk. Faculty members are not allowed to manipulate the subjects.
@@ -188,25 +281,25 @@ Data to be inputted and generated to and by the system is stored in MongoDB. To 
         An expert faculty can be removed from a subject, unassigning them.
     
     \subsection{Users}
-    %-- to do
+    In this part of the system, the dean, associate dean, and clerk can change their details, such as their name, photo, email, and password. Changes in details may be because of outdated or wrong information. Furthermore, the transferring or assignment of the dean, associate dean and clerk are performed in this part of the system. Users can also deactivate accounts.\footnote{These are features being continued in the next term.}
     
 \section{System Feasibility}
 
 \subsection{Schedule Feasibility}
-The team was given January 2018 until April 2018 to create the proposal for the system. The team was then given May 2018 until July 2018 to accomplish the documentation and final software with core modules. Due to the large project scope during the proposal phase, some modules or features were removed or delayed to the the final phase of the thesis in order to make the project feasible in the current schedule.
+The project proponents were given January 2018 until April 2018 to create the proposal for the system. The proponents were then given May 2018 until July 2018 to accomplish the documentation and final software with core modules. Due to the large project scope during the proposal phase, some modules or features have been removed or delayed to the the final phase of the thesis in order to make the project feasible for the current schedule.
 
 \subsection{Operational Feasibility}
-The system is operationally feasibly due to the cooperation of stakeholders and sufficient manpower. The clients are more than willing to cooperate with the development of the system. The team visited the client multiple times for gathering of information through interviews, where series of questions are asked. The client also responds consistently with emails.
+The system is operationally feasible due to the cooperation of stakeholders and sufficient manpower. The clients are more than willing to cooperate with the development of the system and its documentation. Furthermore, the team collaborated with the client for gathering information through interviews and emails.
 
-The project team consists of four members, the maximum, permitted number for this project. One member is assigned as the project manager, another is assigned for head of development, and the remaining two members are assigned to documentation. However, there are times when it is necessary for members to temporarily swap roles or contribute to either the system or to the document. The project manager is responsible for overseeing the whole project, as well as contacting the client and faculty advisor, scheduling consultations, and submitting of forms. The head of development is responsible for supervising the overall system. This includes development of the front-end, back-end, database, system architecture, and so on. The last two members are responsible for documenting the system. This includes the main documentation of the system, user manual, and technical manual. These members must ensure the documentation and graphs mirror what is presented in the system.
+There are four proponents for the project. One member is assigned as the project leader, another member as the developer, and the other two as the documentations team. There are instances wherein the proponents contribute to the work of the other members in order to produce quality, collaborative outputs. The project leader is mainly responsible for contacting the client and the proponents' adviser, as well as overseeing the entire project. Furthermore, the project leader contributes to the documentation of the system and the designing / prototyping of the user interfaces. On the other hand, the developer is responsible for supervising the system, as well as developing the front-end and back-end of the system. Finally, the other two members are assigned solely to documenting the system.
 
 \subsection{Technical Feasibility}
 The minimum required specifications to use the system would be:
 \begin{itemize}
     \item{Firefox v. 61}
-    \item{Google Chrome v.65}
+    \item{Google Chrome v.68}
     \item{Safari v.11}
-    \item{Windows 10/Mac OS High Sierra/Linux}
+    \item{Windows 10 / Mac OS High Sierra / Linux}
     \item{Intel Core i5 2015}
     \item{8GB RAM}
     \item{20GB free storage}
@@ -214,4 +307,4 @@ The minimum required specifications to use the system would be:
 \end{itemize}
 
 \subsection{Economic Feasibility}
-The system will be economically feasible for both the client and the team. This is due to the fact the software needed to develop and run the programs are free. The project team and client are also equipped with hardware that meet the minimum requirements to run the system. As a result, the client does not need to invest in development costs. The project team also consists of students. Furthermore, it is not necessary for the client to spend more on labor.
+The system will be economically feasible for both the client and the project proponents. This is due to the fact the software needed to develop and run the programs are free. The proponents and client are also equipped with hardware that meet the minimum requirements to run the system. As a result, the client does not need to invest in development costs. Furthermore, it is not necessary for the client to spend more on labor.
